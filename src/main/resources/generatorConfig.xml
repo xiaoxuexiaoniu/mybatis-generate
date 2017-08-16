@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--ojdbc.jar 本机.m2文件下的jdbc驱动-->
+    <classPathEntry location="D:/.m2/repository/com/oracle/ojdbc6/11.2.0.3/ojdbc6-11.2.0.3.jar"/>
+
+    <context id="acmOracle" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释，默认false，true：去除；false：不去除 -->
+            <property name="suppressAllComments" value="false" />
+            <!-- 指定在生成的注释是否将包括时间戳，默认是false -->
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <!--数据库连接字符串-->
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@172.21.118.40:1521:ORCL"
+                        userId="acm"
+                        password="acm"/>
+
+        <javaModelGenerator targetPackage="acm.entity"
+                            targetProject="C:\Users\lcs\Desktop\cbbb">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="acm.mybatis.xml"
+                         targetProject="C:\Users\lcs\Desktop\cbbb">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="acm.mybatis.mapper"
+                             targetProject="C:\Users\lcs\Desktop\cbbb"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table tableName="T_FLT_FDL" domainObjectName="TFltFdlEntity"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="FDL_ID" sqlStatement="select SEQ_T_FLT_FDL.NEXTVAL as fdlId from dual"/>
+        </table>
+
+
+        <table tableName="T_FLT_FDM" domainObjectName="TFltFdmEntity"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="FDM_ID" sqlStatement="select SEQ_T_FLT_FDM.NEXTVAL as fdmId from dual"/>
+        </table>
+
+
+        <table tableName="T_FLT_FDS" domainObjectName="TFltFdsEntity"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="FDS_ID" sqlStatement="select SEQ_T_FLT_FDS.NEXTVAL as fdsId from dual"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
